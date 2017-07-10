@@ -2,3 +2,4 @@ body,html{height:100%;-webkit-tap-highlight-color:transparent}body{font-family:-
 .tab_active{display:block;position:relative;}
 .weui-uploader__input-box{width: 60px;height: 60px;}
 .weui-tabbar {/*position: sticky!important;*/bottom: 0!important;}
+#supplierMap {width: 100%;height: 200px;overflow: hidden;margin:0;font-family:"微软雅黑";}
