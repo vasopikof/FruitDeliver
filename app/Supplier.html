@@ -93,7 +93,16 @@
                     </div>
                 </div>
                 <div class="weui-tab__content" id="menu_mgnt">
-                    <div class="weui-panel__hd">Menu Management</div>
+                    <div class="weui-panel__hd">
+                        <div class="weui-flex">
+                            <div class="weui-flex__item"><div class="placeholder">Menu Management </div></div>
+                            <div class="weui-flex__item"><div class="placeholder">
+                                <i class="weui-icon-download" style="float: right;" id="addBtn"></i>
+                            </div></div>
+                        </div>
+                        
+                        
+                    </div>
                     <div class="weui-panel__bd">
                         <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                             <div class="weui-media-box__hd">
@@ -181,7 +190,7 @@
                         <!--end toast-->                   
                     </div>
                     <div id="dialogs">
-                    <!--BEGIN dialog2-->
+                    <!--BEGIN deleteDialog-->
                         <div class="js_dialog" id="deleteDialog" style="display: none;">
                             <div class="weui-mask"></div>
                             <div class="weui-dialog">
@@ -193,7 +202,62 @@
                                 </div>
                             </div>
                     </div>
-                    <!--END dialog2-->
+                    <!--END deleteDialog-->
+                    <!--BEGIN newDialog-->
+                        <div class="js_dialog" id="newDialog" style="display: none;">
+                            <div class="weui-mask"></div>
+                            <div class="weui-dialog">
+                                <div class="weui-dialog__hd"><strong class="weui-dialog__title">New Menu</strong></div>
+                                <div class="weui-dialog__bd">
+                                    <div class="weui-cells weui-cells_form">
+                                        <div class="weui-cell">
+                                            <div class="weui-cell__bd">
+                                                <div class="weui-uploader">
+                                                    <div class="weui-uploader__bd">                                     
+                                                        <div class="weui-uploader__input-box">
+                                                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                        <div class="weui-cell">
+                                                <div class="weui-cell__hd"><label class="weui-label">Name</label></div>
+                                                <div class="weui-cell__bd">
+                                                    <textarea class="weui-textarea" placeholder="menu name" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        <div class="weui-cells__title">Price preferences</div>
+                                        <div class="weui-cells weui-cells_form">
+                                            <div class="weui-cell">
+                                                <div class="weui-cell__hd"><label class="weui-label">small box</label></div>
+                                                <div class="weui-cell__bd">
+                                                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="0"/>
+                                                </div>
+                                            </div>
+                                            <div class="weui-cell">
+                                                <div class="weui-cell__hd"><label class="weui-label">medium box</label></div>
+                                                <div class="weui-cell__bd">
+                                                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="0"/>
+                                                </div>
+                                            </div>
+                                            <div class="weui-cell">
+                                                <div class="weui-cell__hd"><label class="weui-label">large box</label></div>
+                                                <div class="weui-cell__bd">
+                                                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="0"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="weui-dialog__ft">
+                                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">cancle</a>
+                                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="saveBtn">save</a>
+                                </div>
+                            </div>
+                    </div>
+                    <!--END newDialog-->
 
                     </div>
                 </div>
@@ -245,6 +309,8 @@
             }, 2000);
         });
         var $deleteDialog = $('#deleteDialog');
+        var $newDialog = $('#newDialog');
+        newDialog
 
         $('#dialogs').on('click', '.weui-dialog__btn', function(){
             $(this).parents('.js_dialog').fadeOut(200);
@@ -252,7 +318,9 @@
         $('.deleteBtn').on('click', function(){
             $deleteDialog.fadeIn(200);
         });        
-        
+        $('#addBtn').on('click', function(){
+            $newDialog.fadeIn(200);
+        }); 
     });
 </script>
     <script src="./zepto.min.js"></script>
